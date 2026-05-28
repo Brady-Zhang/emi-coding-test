@@ -4,6 +4,7 @@ import { SEED_EVENTS } from './lib/seed';
 import { loadEvents, saveEvents } from './lib/storage';
 import { AppHeader } from './components/AppHeader/AppHeader';
 import { TabletView } from './components/TabletView/TabletView';
+import { AdminView } from './components/AdminView/AdminView';
 
 const CURRENT_USER = 'J Smith';
 
@@ -65,9 +66,11 @@ export function App() {
           onStartNewRepair={startNewRepair}
         />
       ) : (
-        <main style={{ padding: 24 }}>
-          <p>Admin view — step 6 · {events.length} events · selected: {selectedEventId}</p>
-        </main>
+        <AdminView
+          events={events}
+          selectedId={selectedEventId}
+          onSelectId={setSelectedEventId}
+        />
       )}
     </div>
   );
