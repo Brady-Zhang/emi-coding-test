@@ -30,7 +30,7 @@ function keyMetric(event: RepairEvent): string {
 }
 
 export function BreakdownCard({ event, isSelected, onClick }: Props) {
-  const highlighted = isSelected || event.status === 'Active';
+  const highlighted = isSelected;
 
   return (
     <div
