@@ -1,0 +1,112 @@
+.view {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 28px 24px 56px;
+}
+
+/* ── Milestone grid ── */
+.milestones {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+/* ── Divider ── */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--emi-light-grey);
+  margin: 20px 0;
+}
+
+/* ── Annotation buttons ── */
+.annotationButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.annotationBtn {
+  border: 1px solid var(--emi-light-grey);
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--emi-dark);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.annotationBtn:not(:disabled):hover { border-color: var(--emi-dark); }
+.annotationBtn:disabled { opacity: 0.38; cursor: not-allowed; }
+
+/* ── Recent entries ── */
+.entriesHeading {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.entryList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entryRow {
+  display: grid;
+  grid-template-columns: 52px 76px 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--emi-light-grey);
+  align-items: baseline;
+}
+
+.entryRow:last-child { border-bottom: 0; }
+
+.entryTime {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  opacity: 0.55;
+}
+
+.entryKind {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.65;
+}
+
+.entryText {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ── New repair ── */
+.newRepairWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
+
+.newRepairBtn {
+  background: var(--emi-dark);
+  color: var(--emi-off-white);
+  border: 0;
+  border-radius: 7px;
+  padding: 14px 36px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.newRepairBtn:hover { opacity: 0.85; }

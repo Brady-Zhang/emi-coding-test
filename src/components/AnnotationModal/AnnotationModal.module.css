@@ -1,0 +1,105 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  width: 480px;
+  max-width: calc(100vw - 48px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--emi-light-grey);
+}
+
+.headerLabel {
+  display: block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--emi-dark);
+  opacity: 0.5;
+  margin-bottom: 2px;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.body {
+  padding: 20px 24px;
+}
+
+.textarea {
+  width: 100%;
+  border: 1px solid var(--emi-light-grey);
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: var(--emi-dark);
+  resize: vertical;
+  min-height: 120px;
+}
+
+.textarea:focus {
+  outline: 2px solid var(--emi-blue);
+  border-color: transparent;
+}
+
+.footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--emi-light-grey);
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.cancelBtn {
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 24px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--emi-orange);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.cancelBtn:hover { opacity: 0.9; }
+
+.saveBtn {
+  border: 0;
+  border-radius: 7px;
+  padding: 11px 24px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--emi-green);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.saveBtn:not(:disabled):hover { opacity: 0.9; }
+.saveBtn:disabled { opacity: 0.35; cursor: not-allowed; }
