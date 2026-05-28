@@ -1,0 +1,41 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
+}
+
+.table thead tr {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.table th {
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.45;
+  padding: 0 12px 10px 0;
+  text-align: left;
+}
+
+.table td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  vertical-align: top;
+  line-height: 1.4;
+}
+
+.table tr:last-child td { border-bottom: 0; }
+
+.colTime   { width: 52px; opacity: 0.55; white-space: nowrap; }
+.colEvent  { width: 180px; font-weight: 700; }
+.colDetail { opacity: 0.75; }
+
+.kindBadge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+  margin-right: 6px;
+}

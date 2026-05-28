@@ -1,5 +1,7 @@
 import type { RepairEvent, RepairStatus } from '../../lib/types';
 import { BreakdownCard } from '../BreakdownCard/BreakdownCard';
+import { TimelineTable } from '../TimelineTable/TimelineTable';
+import { MetricsPanel } from '../MetricsPanel/MetricsPanel';
 import styles from './AdminView.module.css';
 
 type Props = {
@@ -51,7 +53,10 @@ export function AdminView({ events, selectedId, onSelectId }: Props) {
               Auto-generated from milestone taps. No technician typing required.
             </span>
           </div>
-          {/* TimelineTable + MetricsPanel — step 7 */}
+          <div className={styles.detailLayout}>
+            <TimelineTable entries={selectedEvent.entries} />
+            <MetricsPanel event={selectedEvent} />
+          </div>
         </>
       )}
     </main>

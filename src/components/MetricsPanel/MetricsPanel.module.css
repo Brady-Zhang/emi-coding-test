@@ -1,0 +1,43 @@
+.panel {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.heading {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--emi-gold);
+  margin: 0 0 16px;
+}
+
+.row {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.row:last-child { border-bottom: 0; }
+
+.label {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+
+.value {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.pending { opacity: 0.3; }
+.good    { color: var(--emi-green); }
+.ok      { color: var(--emi-gold); }
+.bad     { color: var(--emi-red); }

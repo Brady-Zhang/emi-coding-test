@@ -63,3 +63,10 @@
 .pillActive    { background: var(--emi-blue); }
 .pillCompleted { background: var(--emi-green); }
 .pillStopped   { background: rgba(255, 255, 255, 0.18); }
+
+.detailLayout {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 24px;
+  align-items: start;
+}
