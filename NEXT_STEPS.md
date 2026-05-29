@@ -18,6 +18,6 @@ The "Start a new repair" flow hardcodes `CAT 793F #12 / Hydraulic` as defaults. 
 
 Technicians work at remote mine sites with intermittent or no connectivity. A service worker with background sync would queue milestone taps and annotations locally and flush them to the server when the connection returns — without data loss or the technician needing to know the network dropped.
 
-## 5. Reporting and export
+## 5. CI/CD pipeline
 
-The timeline data collected per event is the raw material for maintenance KPIs: MTTR by asset, repeat-failure detection, technician response benchmarks. A reporting layer that aggregates across events and exports to CSV or PDF would turn the live capture tool into an ongoing operational improvement asset.
+Add a CI pipeline that runs lint, type-check, and tests on every PR. The project already has a strict TypeScript config (`noUncheckedIndexedAccess`, `noUnusedLocals`, etc.) and pure functions in `metrics.ts` that are natural unit-test targets — a pipeline enforces these automatically rather than relying on developer discipline. A deploy step to a staging URL would also let reviewers verify PRs without pulling the branch locally.
