@@ -1,0 +1,59 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+
+.sub {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.65;
+}
+
+.pill {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+}
+
+.pillActive    { background: var(--emi-blue); }
+.pillCompleted { background: var(--emi-green); }
+.pillStopped   { background: var(--emi-dark); }
+
+.elapsed {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.elapsedLabel {
+  display: block;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.5;
+  margin-bottom: 2px;
+}
+
+.elapsedValue {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+}

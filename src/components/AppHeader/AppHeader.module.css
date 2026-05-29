@@ -1,0 +1,59 @@
+.header {
+  background: var(--emi-dark);
+  border-top: 4px solid var(--emi-gold);
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: auto;
+}
+
+.logo {
+  height: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--emi-off-white);
+}
+
+.toggle {
+  display: flex;
+  gap: 6px;
+}
+
+.toggleBtn {
+  border: 1px solid rgba(249, 249, 252, 0.35);
+  background: transparent;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: rgba(249, 249, 252, 0.5);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.toggleBtn.active {
+  background: var(--emi-off-white);
+  border-color: var(--emi-off-white);
+  color: var(--emi-dark);
+}
+
+.toggleBtn:not(.active):hover {
+  border-color: var(--emi-off-white);
+  color: var(--emi-off-white);
+}
