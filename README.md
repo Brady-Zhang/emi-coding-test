@@ -1,53 +1,49 @@
-# EMI Coding Exercise
+# EMI Repair Event
 
-Welcome. This is the starter repo for the EMI junior developer coding exercise.
+A two-view single-page app for capturing unplanned breakdown repairs in real time.
 
-## First: don't fork - use the template
+## How to run
 
-Click the green **Use this template** button at the top of the GitHub page, then **Create a new repository**. This gives you a clean repo of your own, with no link back to ours.
-
-![Use this template -> Create a new repository](./.github/use-this-template.png)
-
-Once that's done, clone your new repo locally and carry on.
-
-## Start here
-
-1. Read **[`BRIEF.md`](./BRIEF.md)** - what to build, what we'll judge, what to deliver.
-2. Look in **[`design-reference/`](./design-reference/)** - layout wireframes (`mockup.md`) and brand reference (`design-system.html`, open in a browser).
-
-## Run it
-
-```bash
-npm install
-npm run dev
+```
+npm install && npm run dev
 ```
 
-You'll get a blank page with the words "Build me". That's the starting point.
+App runs at http://localhost:5173.
 
-## What's already wired up
+## What's built
 
-- **Vite + React 19 + TypeScript** in strict mode.
-- **Roboto** preconnected and linked in `index.html` (use it; the brand requires it).
-- **`src/lib/types.ts`** - domain types for the Repair Event (extend or replace as you like).
-- **`src/lib/seed.ts`** - sample data so the admin view has something to render from the start.
-- **`src/lib/storage.ts`** - optional `localStorage` helper. Use it if you want persistence.
+**Tablet view** — technician interface. Six sequential milestone buttons stamp a timestamp and current user as the repair progresses. Four annotation types (Finding, Action, Part, Note) open a modal for free-text entry. A recent-entries list shows annotations below the milestone row. Completing milestone 6 flips the event to Completed and surfaces a "Start a new repair" button.
 
-The styling is up to you. The brand palette, type weights, and component specs are in `design-reference/design-system.html` - read it, then bring the palette and type in however you like.
+**Admin view** — supervisor interface, dark-themed. A horizontal card list shows all repair events, active-first. Selecting a card loads the full chronological timeline (milestones and annotations interleaved) and an auto-calculated metrics panel with colour-coded response, diagnosis, repair, and downtime figures.
 
-## What you'll add
+Both views read from the same in-memory state. Switching views never loses state.
 
-The brief tells you the full scope. In rough order of priority:
+## Trade-offs
 
-- A tablet view: six milestone buttons + add-annotation buttons + a modal.
-- An admin view: timeline + auto-calculated metrics.
-- A header toggle to swap between them.
+**`localStorage` persistence enabled.** `storage.ts` was already wired in the template — enabling it costs nothing and makes the demo nicer across refreshes. To disable, remove the `useEffect` on line 19 of `App.tsx`.
 
-## Time
+**Current user hardcoded to `"J Smith"`.** No auth system is in scope. All milestone stamps and annotations use the `CURRENT_USER` constant in `App.tsx:9`. A real app would pull this from an auth context.
 
-Around 2 hours of focused work. Don't grind it for a weekend.
+**New repair hardcodes asset and system.** `startNewRepair` in `App.tsx:44` defaults to `CAT 793F #12 / Hydraulic` because the brief doesn't specify a creation form. The next step would be an asset/system picker.
 
-## Questions
+**Elapsed timer at 10 s interval.** Smooth enough for a repair dashboard without being wasteful. A 1 s interval would be unnecessary for this use case.
 
-If something's unclear, make a sensible call and note it in your README when you submit. We'd rather see your judgement than a clarifying email.
+**`AnnotationModal` as a fixed overlay, not a React portal.** Sufficient for the exercise. A production app should use a portal to avoid stacking-context issues when other high-z-index layers are present.
 
-Good luck.
+**Metric thresholds are engineering judgement.** Chosen to be defensible for heavy-equipment industrial context and documented in `docs/plan.md`:
+
+| Metric         | Good     | OK      | Bad    |
+|----------------|----------|---------|--------|
+| Response time  | < 15 min | 15–30   | > 30   |
+| Diagnosis time | < 20 min | 20–45   | > 45   |
+| Repair time    | < 60 min | 60–120  | > 120  |
+| Total downtime | < 90 min | 90–180  | > 180  |
+
+**No unit tests written.** The pure functions in `src/lib/metrics.ts` are the natural test target, but given the 2-hour scope the effort went into feature completeness and code readability instead.
+
+## What I'd change with more time
+
+- **React portal for `AnnotationModal`** to avoid potential stacking-context conflicts in a larger app.
+- **Unit tests for `metrics.ts`** — `calcMetrics` and `rateMetric` are pure functions that test trivially.
+- **Asset/system picker on new-repair creation** instead of hardcoded defaults.
+- **Responsive layout** for smaller screens; the current layout assumes ≥ iPad landscape.
