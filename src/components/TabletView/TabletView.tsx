@@ -47,7 +47,7 @@ export function TabletView({ event, onTapMilestone, onSaveAnnotation, onStartNew
     .map(e => e.kind as MilestoneKind);
 
   const nextMilestone = MILESTONE_SEQUENCE.find(k => !tappedKinds.includes(k)) ?? null;
-  const annotationsEnabled = event.status === 'Active';
+  const annotationsEnabled = event.status === 'Active' && tappedKinds.includes('StartBreakdown');
 
   const annotations = event.entries
     .filter((e): e is AnnotationEntry => e.type === 'annotation')
